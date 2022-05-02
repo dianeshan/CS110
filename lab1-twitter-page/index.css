@@ -1,0 +1,133 @@
+/* Feel free to edit CSS of body if you'd like. We provide you the light gray background color and font family in the body styling */
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 0;
+  background-color: #e6ecf0 !important;
+}
+
+/* TODO: Create CSS for your Twitter Mockup */
+
+.bold-text {
+  font-weight: 700;
+}
+
+.twitter-logo {
+  width: 35px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;
+  display: block;
+}
+
+.nav-hover:hover {
+  color: #4AB3F4 !important;
+  border-bottom: 3px solid #4AB3F4;
+  padding-bottom: 7px;
+}
+
+.tweet-btn {
+  background-color: #4AB3F4 !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+}
+
+.content-wrapper {
+  max-width: 1190px;
+  margin: 56px auto;
+  padding-top: 9px;
+}
+
+.content-left {
+  max-width: 290px;
+  max-height: 275px;
+}
+
+.cover-picture {
+  background-color: #000000;
+  width: 290px;
+  height: 100px;
+  text-align: center;
+}
+
+.rat-banner {
+  width: 200px;
+  padding: 12% 0;
+}
+
+.profile-picture {
+  z-index: 100;
+  max-width: 290px;
+  background-color: #ffffff;
+}
+
+.pfp {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  z-index: 2;
+  transform: translateY(-30%) translateX(25%);
+  border: solid #ffffff 3px;
+  
+}
+
+.profile-stats {
+  max-width: 290px;
+  background-color: #ffffff;
+}
+
+.blue-text {
+  color: #4AB3F4;
+}
+
+.content-center {
+  /* background-color: #ffffff; */
+  max-width: 610px;
+}
+
+.pfp-small {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.grey-text {
+  color: #949494;
+}
+
+.content-right {
+  margin-bottom: 2px;
+}
+
+.tweets {
+  border-bottom: 1px solid #e6ecf0;
+  min-height: 51px;
+  padding-bottom: 10px;
+  padding-top: 12px;
+  background-color: #ffffff;
+}
+
+.follow-btn {
+  border-color: #4AB3F4 !important;
+  color: #4AB3F4 !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+}
+
+/*add padding between middle content and left content on smaller screen size*/
+@media screen and (max-width: 992px) {
+  .content-center {
+    padding-top: 2em;
+  }
+}
+
+/*right side disappears when the screen is smaller*/
+@media screen and (max-width: 1200px) {
+  .content-right {
+    display: none;
+  }
+}
+
+.skip-link {
+  display: none;
+}

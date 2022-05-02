@@ -1,0 +1,18 @@
+.upVote, .downVote {
+    background: transparent;
+    border-style: none;
+}
+
+.voting {
+    position: relative;
+    margin-top: -25px;
+    float: right;
+    right: 0;
+}
+
+.voteCount {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin: -6px 0;
+}
