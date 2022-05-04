@@ -14,17 +14,14 @@
     font-size: 14px;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 3em;
+.reply-button {
+    font-size: 11px;
+    position: relative;
+    float: left;
+    left: 0;
+    margin-left: -10px;
 }
 
-.reply {
-    padding-left: 50px;
-}
-
-.replyOfReply {
-    padding-left: 100px;
+.replies {
+    padding-left: 1em;
 }
