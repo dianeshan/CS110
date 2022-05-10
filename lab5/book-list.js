@@ -86,6 +86,6 @@ async function setDeleteModal (isbn) {
         console.log(data);
 
         // setting up the action url for the book
-        document.getElementById('deleteForm').action = `http://localhost:3000/book/${isbn}`;
+        document.getElementById('deleteForm').action = `http://localhost:3000/book/${isbn}?_method=DELETE`;
     }
 }

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override')
 const cors = require('cors');
 
 const app = express();
@@ -31,6 +32,7 @@ let books = [
         },
 ];
 
+app.use(methodOverride('_method'))
 app.use(cors());
 
 // configuring body parser middleware
@@ -91,14 +93,7 @@ app.delete('/book/:isbn', (req, res) => {
     const isbn = req.params.isbn;
 
     //remove item from the books array
-    books = books.filter(b => {
-        if (b.isbn !== isbn) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    })
+    books = books.filter(b => b.isbn !== isbn)
 
     res.send('Book is deleted');
 });
