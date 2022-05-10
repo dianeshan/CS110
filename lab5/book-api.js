@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override')
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -38,6 +39,15 @@ app.use(cors());
 // configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use('/src', express.static(path.join(__dirname + '/src')));
+
+app.get('/book', (req, res) => {
+    res.sendFile(__dirname + '/book-list.html');
+})
+
+app.get('/new-book', (req, res) => {
+    res.sendFile(__dirname + '/new-book.html');
+})
 
 app.post('/book', (req, res) => {
     const book = req.body;
@@ -46,11 +56,9 @@ app.post('/book', (req, res) => {
     console.log(book);
     books.push(book);
 
-    console.log(books);
-    //res.redirect("book-list.html");
-    window.location.replace('book-list.html');
-    res.send('Book is added to the database');
-    
+    console.log('book is added');
+    res.redirect('/book');
+    //res.send('Book is added to the database');
 });
 
 app.get('/books', (req, res) => {
@@ -85,7 +93,9 @@ app.post('/book/:isbn', (req, res) => {
         }
     }
 
-    res.send('Book is edited');
+    console.log('book is editted');
+    res.redirect('/book');
+    // res.send('Book is edited');
 })
 
 app.delete('/book/:isbn', (req, res) => {
@@ -95,7 +105,10 @@ app.delete('/book/:isbn', (req, res) => {
     //remove item from the books array
     books = books.filter(b => b.isbn !== isbn)
 
-    res.send('Book is deleted');
+    console.log('book is deleted');
+    res.redirect('/book');
+    //res.send('Book is deleted');
 });
+
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}`));
