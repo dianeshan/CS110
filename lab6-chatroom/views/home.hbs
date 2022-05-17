@@ -1,0 +1,45 @@
+<div class="container">
+    <h1> Home </h1>
+    <p>This is the {{ title }} page.</p>
+
+    {{#if isAvailable}}
+    <ul class="container" id="list-template">
+        {{#each rooms}}
+        <li><a href={{this.name}}>{{this.name}}</a></li>
+        {{/each}}
+    </ul>
+    {{/if}}
+
+    <form action="/create" method="POST">
+        <input type="text" name="roomName" placeholder="Enter a room name"/>
+        <button type="submit" class="btn btn-info">Create Room</button>
+    </form>
+</div>
+
+{{!-- <script src="https://twitter.github.io/typeahead.js/js/handlebar.js"></script> --}}
+<script>
+    window.addEventListener("load", function(){
+        setInterval(async function(){
+            fetch("http://localhost:8080/getRoom")
+            .then(response => response.json())
+            .then(data => {
+                var roomJson = data;
+                console.log(roomJson);
+                
+                var ul_element = document.getElementById('list-template');
+                ul_element.innerHTML="";
+
+                for(var j = 0; j < roomJson.length; j++){
+                    var li = document.createElement('li');
+                    var a = document.createElement('a');
+                    a.innerHTML = roomJson[j].name;
+                    a.setAttribute('href', `/${roomJson[j].name}`)
+                    li.appendChild(a);
+                    ul_element.appendChild(li);
+                }
+            }).catch(err =>{
+                console.log("Error when rendering rooms", err)
+            });
+        }, 1000);
+    });
+</script>

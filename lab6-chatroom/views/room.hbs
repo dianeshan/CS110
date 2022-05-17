@@ -1,0 +1,85 @@
+<div class="container">
+    <h1> Room {{ roomName }}</h1>
+    
+    <ul class="container" id="list-template">
+        {{!-- {{#each chats}}
+            <div>
+                {{this.username}}
+                <p>{{this.message}}</p>
+                <p>{{moment this.dateOfEntry format="MM/DD/YYYY"}}</p>
+            <div>
+        {{/each}} --}}
+    </ul>
+
+    <form action="/message" method="POST">
+        <input id="roomInfo" type="hidden" name="rName" value="{{roomName}}"/>
+        <input id="enterusername" type="text" name="userName" placeholder="Enter username">
+        <input type="text" name="message" placeholder="Enter message">
+        <button type="submit" class="btn btn-info" onclick="userInput()">Send message</button>
+    </form>
+    
+</div>
+
+<script>
+
+    function userInput() {
+        console.log('Yo');
+        var bool = false;
+        var input = document.getElementById("enterusername");
+        if (input.value === undefined || input.value.trim() === "") {
+            bool = true;
+        }
+        else {
+            return username;
+        }
+        while (bool) {
+            var username = prompt('Please enter a nickname');
+            console.log(username);
+            if (username) {
+                bool = false;
+            }
+        }
+
+        input.value = username;
+        return username;
+    }
+
+    //fetch messages
+    window.addEventListener("load", function() {
+        setInterval(async function(){
+            fetch(`http://localhost:8080/getChat`)
+            .then(response => response.json())
+            .then(data => {
+                var messageJson = data;
+                console.log(messageJson);
+                
+                var r = document.getElementById('roomInfo').value;
+
+                var ul_element = document.getElementById('list-template');
+                ul_element.innerHTML="";
+
+                for(var j = 0; j < messageJson.length; j++) {
+                    if (messageJson[j].room === r) {
+                        var div = document.createElement('div');
+                        var p = document.createElement('p');
+                        var p2 = document.createElement('p');
+                        div.innerHTML = messageJson[j].username;
+                        p.innerHTML = messageJson[j].message;
+                        date = new Date(messageJson[j].dateOfEntry);
+                        p2.innerHTML = date.toLocaleString();
+                        div.appendChild(p);
+                        div.appendChild(p2);
+                        ul_element.appendChild(div);
+                    }
+                }
+            }).catch(err =>{
+                console.log("Error when rendering messages", err)
+            });
+        }, 3000);
+    });
+</script>
+   
+
+
+
+
