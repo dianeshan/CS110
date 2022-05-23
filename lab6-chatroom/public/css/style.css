@@ -1,1 +1,27 @@
 /* TODO: style each page */
+#list-template{
+    list-style: none;
+}
+
+#list-template li{
+    background-color:#25cff2;
+    color:black;
+    max-width:fit-content;
+    padding-right:10px;
+    padding-left:10px;
+    border-radius:5px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+#list-template li:hover{
+    background-color: #8becff;
+    
+}
+
+#list-template li a:link{color:black;}
+#list-template li a:visited{color:black;}
+#list-template li a:hover{color:black;}
+#list-template li a:active{color:black;}
+#list-template li a{text-decoration: none;}
+
