@@ -1,44 +1,58 @@
-/*Home Styling*/
-#list-template{
-    list-style: none;
+/* Home Styling */
+#list-template {
+  list-style: none;
 }
 
-#list-template li{
-    background-color:#25cff2;
-    color:black;
-    max-width:fit-content;
-    padding-right:10px;
-    padding-left:10px;
-    border-radius:5px;
-    margin-top:5px;
-    margin-bottom:5px;
+#list-template li {
+  background-color: #25cff2;
+  color: black;
+  max-width: fit-content;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-#list-template li:hover{
-    background-color: #8becff;
-    
+#list-template li:hover {
+  background-color: #8becff;
 }
 
-#list-template li a:link{color:black;}
-#list-template li a:visited{color:black;}
-#list-template li a:hover{color:black;}
-#list-template li a:active{color:black;}
-#list-template li a{text-decoration: none;}
-
-/*Room Styling*/
-#list-template div .dateInfo{
-    color:grey;
+#list-template li a {
+  text-decoration: none;
 }
 
-#list-template div{
-    font-weight:bold;
-    background-color:rgb(233, 233, 233);
-    width:fit-content;
-    border-radius:5px;
-    padding-left:5px;
-    padding-right:5px;
+#list-template li a:link {
+  color: black;
 }
 
-#list-template div p{
-    font-weight:normal;
+#list-template li a:visited {
+  color: black;
+}
+
+#list-template li a:hover {
+  color: black;
+}
+
+#list-template li a:active {
+  color: black;
+}
+
+/* Room Styling */
+
+#list-template div .dateInfo {
+  color: grey;
+}
+
+#list-template div {
+  font-weight: bold;
+  background-color: rgb(233, 233, 233);
+  width: fit-content;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#list-template div p {
+  font-weight: normal;
 }
