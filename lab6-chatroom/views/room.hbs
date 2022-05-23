@@ -62,7 +62,9 @@
                     if (messageJson[j].room === r) {
                         var div = document.createElement('div');
                         var p = document.createElement('p');
+                        p.classList.add("messageContent");
                         var p2 = document.createElement('p');
+                        p2.classList.add("dateInfo");
                         div.innerHTML = messageJson[j].username;
                         p.innerHTML = messageJson[j].message;
                         date = new Date(messageJson[j].dateOfEntry);
